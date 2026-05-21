@@ -72,14 +72,16 @@ return [
     'driver' => 'Cake\Database\Driver\Mysql',
     'persistent' => false,
     'host' => env('MYSQLHOST'),
-    'port' => env('MYSQLPORT'),
+    'port' => (int)env('MYSQLPORT'),
     'username' => env('MYSQLUSER'),
     'password' => env('MYSQLPASSWORD'),
     'database' => env('MYSQLDATABASE'),
     'encoding' => 'utf8mb4',
     'timezone' => 'UTC',
     'cacheMetadata' => true,
+    'quoteIdentifiers' => false,
 ],
+
         ],
     ],
 ];
