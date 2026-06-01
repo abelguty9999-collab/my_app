@@ -38,13 +38,20 @@ return [
      * See app.php for more configuration options.
      */
     'Datasources' => [
-        'default' => [
-            'host' => env('DB_HOST'),
-'port' => env('DB_PORT'),
-'username' => env('DB_USERNAME'),
-'password' => env('DB_PASSWORD'),
-'database' => env('DB_DATABASE'),
-        ],
+    'default' => [
+        'className' => 'Cake\Database\Connection',
+        'driver' => 'Cake\Database\Driver\Mysql',
+        'persistent' => false,
+        'host' => 'mysql.railway.internal',
+        'port' => 3306,
+        'username' => 'root',
+        'password' => env('MYSQL_ROOT_PASSWORD'),
+        'database' => 'railway',
+        'encoding' => 'utf8mb4',
+        'timezone' => 'UTC',
+        'cacheMetadata' => true,
+    ],
+],
 
         /*
          * The test connection is used during the test suite.
