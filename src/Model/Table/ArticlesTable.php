@@ -43,7 +43,7 @@ class ArticlesTable extends Table
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
 
-        $this->addBehavior('Timestamp');
+        //$this->addBehavior('Timestamp');
     }
 
     /**
