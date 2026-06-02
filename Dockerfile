@@ -1,15 +1,24 @@
-FROM php:8.3-cli
+FROM php:8.2-cli
 
 RUN apt-get update && apt-get install -y \
-    git unzip libicu-dev libzip-dev \
-    && docker-php-ext-install intl pdo_mysql zip
+    libicu-dev \
+    libzip-dev \
+    unzip \
+    zip \
+    git
 
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN docker-php-ext-configure intl
+
+RUN docker-php-ext-install intl pdo pdo_mysql
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 
 COPY . .
 
-RUN composer install --no-interaction --optimize-autoloader
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+RUN composer install --optimize-autoloader --no-interaction
 
 CMD php -S 0.0.0.0:$PORT -t webroot
