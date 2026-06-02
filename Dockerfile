@@ -19,6 +19,6 @@ COPY . .
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-RUN composer install --optimize-autoloader --no-interaction
+RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 CMD php -S 0.0.0.0:$PORT -t webroot
