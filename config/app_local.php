@@ -50,12 +50,7 @@ return [
             'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
     'DebugKit' => [
-        'safeTld' => [
-        'localhost',
-        'app',
-        'railway.app',
-        'up.railway.app',
-        ],
+        'safeTld' => [ 'app'],
         'forceEnable' => true,
         ],
     ],
