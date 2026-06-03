@@ -52,6 +52,7 @@ return [
     'DebugKit' => [
         'safeTld' => [
         'localhost',
+        'app',
         'railway.app',
         'up.railway.app',
         ],
