@@ -63,6 +63,10 @@ return function (RouteBuilder $routes): void {
          */
         $builder->connect('/pages/*', 'Pages::display');
 
+        $builder->connect('/articles/{slug}', [
+            'controller' => 'Articles',
+            'action' => 'view'])
+            ->setPass(['slug']);
         /*
          * Connect catchall routes for all controllers.
          *
