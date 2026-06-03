@@ -21,6 +21,8 @@
                     echo $this->Form->control('slug');
                     echo $this->Form->control('body');
                     echo $this->Form->control('published');
+                    echo $this->Form->control('created', ['type' => 'datetime']);
+                    echo $this->Form->control('modified', ['type' => 'datetime']);  
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
